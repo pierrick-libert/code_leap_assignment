@@ -16,13 +16,13 @@
       "get": {
         "parameters": [
           {
-            "$ref": "components/breed.json#/components/parameters/GetBreedPageParams"
+            "$ref": "#/components/parameters/GetBreedPageParams"
           },
           {
-            "$ref": "components/breed.json#/components/parameters/GetBreedLimitParams"
+            "$ref": "#/components/parameters/GetBreedLimitParams"
           },
           {
-            "$ref": "components/breed.json#/components/parameters/GetBreedOrderParams"
+            "$ref": "#/components/parameters/GetBreedOrderParams"
           }
         ],
         "tags": [
@@ -38,7 +38,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "components/breed.json#/components/schemas/Breed"
+                    "$ref": "#/components/schemas/Breed"
                   }
                 }
               }
@@ -68,7 +68,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "components/breed.json#/components/schemas/Breed"
+                  "$ref": "#/components/schemas/Breed"
                 }
               }
             }
@@ -90,7 +90,7 @@
         "summary": "POST Image",
         "description": "Create an image with the possibility to link it to a breed",
         "requestBody": {
-          "$ref": "components/image.json#/components/requestBodies/PostImage"
+          "$ref": "#/components/requestBodies/PostImage"
         },
         "responses": {
           "201": {
@@ -123,7 +123,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "components/image.json#/components/schemas/Image"
+                  "$ref": "#/components/schemas/Image"
                 }
               }
             }
@@ -156,7 +156,7 @@
       "get": {
         "parameters": [
           {
-            "$ref": "components/image.json#/components/parameters/GetImageNbParams"
+            "$ref": "#/components/parameters/GetImageNbParams"
           }
         ],
         "tags": [
@@ -172,7 +172,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "components/image.json#/components/schemas/Image"
+                    "$ref": "#/components/schemas/Image"
                   }
                 }
               }
@@ -316,6 +316,42 @@
         },
         "description": "ID of the resource to manipulate"
       },
+      "GetBreedPageParams": {
+        "in": "query",
+        "name": "page",
+        "schema": {
+          "type": "number"
+        },
+        "required": false,
+        "description": "Filter the number of breeds returned"
+      },
+      "GetBreedLimitParams": {
+        "in": "query",
+        "name": "limit",
+        "schema": {
+          "type": "number"
+        },
+        "required": false,
+        "description": "Filter the number of breeds returned"
+      },
+      "GetBreedOrderParams": {
+        "in": "query",
+        "name": "order",
+        "schema": {
+          "type": "string"
+        },
+        "required": false,
+        "description": "Define the order of breeds returned"
+      },
+      "GetImageNbParams": {
+        "in": "query",
+        "name": "order",
+        "schema": {
+          "type": "number"
+        },
+        "required": false,
+        "description": "Restrict the number of random images returned"
+      }
     },
     "schemas": {
       "BodyGeneral": {
@@ -326,7 +362,87 @@
           }
         }
       },
-
+      "Breed": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Image"
+            }
+          }
+        }
+      },
+      "Image": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "height": {
+            "type": "number"
+          },
+          "width": {
+            "type": "number"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "requestBodies": {
+      "PostImage": {
+        "required": true,
+        "content": {
+          "multipart/form-data": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "breed_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "file": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "required": [
+                "file"
+              ]
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -10,15 +10,13 @@ export class ImageFactory {
 
   // Return a random number of images
   public getRandom(nb: number): PgQueryObject {
-    const query = `SELECT id, url, filename, height, width, created_at, updated_at
-      FROM image ORDER BY random() LIMIT $1`;
+    const query = `${this.getImage()} ORDER BY random() LIMIT $1`;
     return {query, values: [nb > 0 ? nb : 40]};
   }
 
   // Return a specific image from its ID
   public getById(id: string): PgQueryObject {
-    const query = `SELECT id, url, filename, height, width, created_at, updated_at FROM image
-      WHERE id=$1`;
+    const query = `${this.getImage()} WHERE id=$1`;
     return {query, values: [id]};
   }
 
@@ -61,6 +59,14 @@ export class ImageFactory {
       required: ['file'],
       type: 'object'
     };
+  }
+
+  /******************************************************************
+  **                             Utils                             **
+  ******************************************************************/
+  // Request used in all breeds GET
+  private getImage(): string {
+    return 'SELECT id, url, filename, height, width, created_at, updated_at FROM image';
   }
 
 }

@@ -27,6 +27,7 @@
   "homepage": "https://github.com/10ten-me/ts-seed-api#readme",
   "dependencies": {
     "@sentry/node": "6.16.1",
+    "@types/swagger-jsdoc": "^6.0.1",
     "ajv": "8.8.2",
     "axios": "0.24.0",
     "cors": "2.8.5",
@@ -35,6 +36,7 @@
     "pg": "8.7.1",
     "pg-native": "3.0.0",
     "probe-image-size": "7.2.2",
+    "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "4.3.0",
     "ts-node": "10.4.0",
     "tsc-watch": "4.5.0",

@@ -1,3 +1,4 @@
+import {ImageModel} from '../image/image.interface';
 
 // Interface for the DB model
 export interface BreedModel {
@@ -6,6 +7,7 @@ export interface BreedModel {
   display_name: string;
   created_at: string;
   updated_at: string;
+  images: ImageModel[];
 }
 
 // Use to order by dynamically
