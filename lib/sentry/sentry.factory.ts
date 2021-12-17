@@ -1,5 +1,3 @@
-'use strict';
-
 import {Config} from '../config';
 import {init} from '@sentry/node';
 

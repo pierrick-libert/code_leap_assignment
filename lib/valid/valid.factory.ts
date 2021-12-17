@@ -1,5 +1,3 @@
-'use strict';
-
 import * as ValidInterface from './valid.interface';
 
 export class ValidFactory {
@@ -68,7 +66,8 @@ export class ValidFactory {
       properties: {
         id: ValidFactory.getStringSchema(1)
       },
-      required: ['id']
+      required: ['id'],
+      type: 'object'
     };
   }
 

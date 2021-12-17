@@ -1,9 +1,7 @@
-'use strict';
-
-import * as cors from 'cors';
-import * as express from 'express';
+import cors from 'cors';
 import {Endpoint} from './app.interface';
-import * as fileUpload from 'express-fileupload';
+import fileUpload from 'express-fileupload';
+import express, {RequestHandler} from 'express';
 import {LoggerService} from '../logger/logger.service';
 import {ResponseFactory} from '../response/response.factory';
 import {MiddlewareFactory} from '../middleware/middleware.factory';
@@ -11,7 +9,7 @@ import {MiddlewareFactory} from '../middleware/middleware.factory';
 export class AppService {
 
   // You can setup this basePath in your code to have the lang checked automatically
-  public static basePath = '/:lang((en){1})';
+  public static basePath = '/api';
   public port: number;
   public loggerService: LoggerService;
   public app: express.Application;
@@ -30,13 +28,13 @@ export class AppService {
   private initializeMiddlewares(): void {
     this.app.use(cors({credentials: true}));
     this.app.options('*', cors({credentials: true}));
-    this.app.use(express.json({type: 'application/*'}));
+    this.app.use(express.json({type: 'application/*'}) as RequestHandler);
     // Middleware
     this.app.use(fileUpload({
       limits: { fileSize: 10 * 1024 * 1024 }, // 10mb max
-      abortOnLimit: true
-      // useTempFiles : true,
-      // tempFileDir : '/tmp/'
+      abortOnLimit: true,
+      useTempFiles : true,
+      tempFileDir : '/tmp/'
     }));
     this.app.use(MiddlewareFactory.logger);
   }

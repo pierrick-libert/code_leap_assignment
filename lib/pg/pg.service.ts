@@ -1,5 +1,3 @@
-'use strict';
-
 import {Pool} from 'pg';
 import {PgFactory} from './pg.factory';
 import * as PgInterface from './pg.interface';

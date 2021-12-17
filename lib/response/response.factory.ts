@@ -1,5 +1,3 @@
-'use strict';
-
 import {Response} from 'express';
 
 export class ResponseFactory {

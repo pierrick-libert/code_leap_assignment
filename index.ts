@@ -1,5 +1,3 @@
-'use strict';
-
 import {PgFactory} from './lib/pg/pg.factory';
 import {PgService} from './lib/pg/pg.service';
 import {AppService} from './lib/app/app.service';
@@ -8,7 +6,8 @@ import {LoggerFactory} from './lib/logger/logger.factory';
 import {LoggerService} from './lib/logger/logger.service';
 
 // List all endpoints used by your applications
-import {Sample} from './endpoints/sample';
+import {Breed} from './endpoints/breed';
+import {Image} from './endpoints/image';
 
 // Define if we're in a production env
 const isProd = process.env.NODE_ENV === 'production';
@@ -23,10 +22,12 @@ const logger = new LoggerService(new LoggerFactory(isProd));
 if (isProd === false) {
   logger.getLogger().debug('Logging initialized at debug level');
 }
+
 // Add all your endpoints there
 const app = new AppService(
   [
-    new Sample(pgService, logger),
+    new Breed(pgService, logger),
+    new Image(pgService, logger),
   ],
   logger,
   8080,

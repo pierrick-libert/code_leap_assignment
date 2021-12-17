@@ -1,5 +1,3 @@
-'use strict';
-
 import {captureException} from '@sentry/node';
 import {createLogger, format, transports, Logger, LogEntry} from 'winston';
 

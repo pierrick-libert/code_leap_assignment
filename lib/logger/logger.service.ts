@@ -1,5 +1,3 @@
-'use strict';
-
 import {Logger} from 'winston';
 import {LoggerFactory} from './logger.factory';
 

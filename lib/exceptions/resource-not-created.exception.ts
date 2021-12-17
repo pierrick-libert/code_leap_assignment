@@ -1,5 +1,3 @@
-'use strict';
-
 import {HttpException} from './http.factory';
 
 export class ResourceNotCreatedException extends HttpException {

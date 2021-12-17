@@ -1,5 +1,3 @@
-'use strict';
-
 import {Router} from 'express';
 
 // Interface to be implemented by every endpoint

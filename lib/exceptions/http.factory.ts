@@ -1,5 +1,3 @@
-'use strict';
-
 export class HttpException extends Error {
 
   public status: number;
