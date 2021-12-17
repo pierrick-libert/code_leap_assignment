@@ -24,6 +24,12 @@ export class AppService {
     this.initializeErrorMiddleware();
   }
 
+  public listen(): void {
+    this.app.listen(this.port, () => {
+      this.loggerService.getLogger().info(`App listening on the port ${this.port}`);
+    });
+  }
+
   // Init all middlewares to handle errors and so on
   private initializeMiddlewares(): void {
     this.app.use(cors({credentials: true}));
@@ -57,9 +63,4 @@ export class AppService {
     ResponseFactory.make(404, {'message': 'Endpoint does not exist for this http method'}, response);
   }
 
-  public listen(): void {
-    this.app.listen(this.port, () => {
-      this.loggerService.getLogger().info(`App listening on the port ${this.port}`);
-    });
-  }
 }

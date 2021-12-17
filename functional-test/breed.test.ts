@@ -36,7 +36,7 @@ describe('Breed Success Functional Test', function() {
           breed_name = res.body[0].name;
           done();
         }
-    });
+      });
   });
 
   it('GET breeds with page=1', function(done) {
@@ -53,7 +53,7 @@ describe('Breed Success Functional Test', function() {
           expect(res.body.length).to.equal(40);
           done();
         }
-    });
+      });
   });
 
   it('GET breeds with page=1 & limit=20', function(done) {
@@ -70,7 +70,7 @@ describe('Breed Success Functional Test', function() {
           expect(res.body.length).to.equal(20);
           done();
         }
-    });
+      });
   });
 
   it('GET breeds with page=1 & limit=20 & order=id', function(done) {
@@ -87,7 +87,7 @@ describe('Breed Success Functional Test', function() {
           expect(res.body.length).to.equal(20);
           done();
         }
-    });
+      });
   });
 
   it('GET no breeds with page=100 & limit=100', function(done) {
@@ -104,7 +104,7 @@ describe('Breed Success Functional Test', function() {
           expect(res.body.length).to.equal(0);
           done();
         }
-    });
+      });
   });
 
   it(`GET specific breed ${breed_name}`, function(done) {
@@ -121,7 +121,7 @@ describe('Breed Success Functional Test', function() {
           expect(res.body.name).to.equal(breed_name);
           done();
         }
-    });
+      });
   });
 
 });
@@ -129,7 +129,7 @@ describe('Breed Success Functional Test', function() {
 
 describe('Breed Error Functional Test', function() {
 
-  it(`GET non-existent breed`, function(done) {
+  it('GET non-existent breed', function(done) {
     server
       .get(`${breedApi}/totohaha`)
       .expect('Content-type', /json/)
@@ -142,6 +142,6 @@ describe('Breed Error Functional Test', function() {
           expect(res.body.message).to.be.a('string');
           done();
         }
-    });
+      });
   });
 });

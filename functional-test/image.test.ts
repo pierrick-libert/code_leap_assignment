@@ -36,7 +36,7 @@ describe('Image Success Functional Test', function() {
           image_id = res.body[0].id;
           done();
         }
-    });
+      });
   });
 
   it('GET Random images nb=10', function(done) {
@@ -53,7 +53,7 @@ describe('Image Success Functional Test', function() {
           expect(res.body.length).to.equal(10);
           done();
         }
-    });
+      });
   });
 
   it('GET image by id', function(done) {
@@ -70,7 +70,7 @@ describe('Image Success Functional Test', function() {
           expect(res.body.id).to.equal(image_id);
           done();
         }
-    });
+      });
   });
 
   it('POST Create image', function(done) {
@@ -90,7 +90,7 @@ describe('Image Success Functional Test', function() {
           image_id = res.body.id;
           done();
         }
-    });
+      });
   });
 
   it('DELETE The image we just created', function(done) {
@@ -106,7 +106,7 @@ describe('Image Success Functional Test', function() {
           expect(res.body).to.be.a('object');
           done();
         }
-    });
+      });
   });
 
 });
