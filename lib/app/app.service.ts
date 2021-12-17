@@ -1,9 +1,11 @@
 import cors from 'cors';
 import {Endpoint} from './app.interface';
+import swaggerUi from 'swagger-ui-express';
 import fileUpload from 'express-fileupload';
 import express, {RequestHandler} from 'express';
 import {LoggerService} from '../logger/logger.service';
 import {ResponseFactory} from '../response/response.factory';
+import * as swaggerDocument from '../../swagger/swagger.json';
 import {MiddlewareFactory} from '../middleware/middleware.factory';
 
 export class AppService {
@@ -47,6 +49,7 @@ export class AppService {
 
   // Init all routes for all endpoints mapped in index.ts
   private initializeEndpoints(endpoints: Endpoint[]): void {
+    this.app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     endpoints.forEach((endpoint: Endpoint) => {
       this.app.use('/', endpoint.router);
     });

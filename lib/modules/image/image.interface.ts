@@ -5,6 +5,7 @@ export interface ImageModel {
   url: string;
   height: number;
   width: number;
+  filename: string;
   created_at: string;
   updated_at: string;
 }

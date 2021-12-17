@@ -1,10 +1,16 @@
 # Code Leap Assignment
 
-
 ## Install all dependencies
 
 ```bash
 npm install
+```
+
+## Import JSON
+
+To import the json provided for this assignment:
+```bash
+npm run load_json
 ```
 
 ## Launching locally
@@ -30,11 +36,31 @@ npm test
 npm run lint
 ```
 
+## API
+
+### Swagger
+
+To see the API swagger, you must launch the server.
+
+```bash
+npm start
+```
+
+Then goes on this URL:
+
+```bash
+http://127.0.0.1:8080/swagger
+```
+
+You can check the validity of the swagger through the command:
+```bash
+swagger-cli validate swagger/swagger.json
+```
+
 ## Technological stack
 
  * Nodejs 12.11 mininmum
  * Typescript (installed through npm)
- * Webpack (installed through npm)
 
 ## Environment variables
 
