@@ -1,18 +1,18 @@
 {
-  "name": "ts-seed-api",
+  "name": "ts-cat-example-api",
   "version": "1.0.0",
-  "description": "Typescript Seed API for all projects to handle CRUD operations",
+  "description": "Typescript Cat Example API created on a whim.",
   "main": "index.js",
   "scripts": {
-    "start": "env TZ='Asia/Dubai' ./node_modules/.bin/tsc-watch --noClear --onSuccess \"node ./dist/index.js\"",
-    "compile": "./node_modules/.bin/tsc --alwaysStrict",
-    "test": "./node_modules/mocha/bin/mocha -r ts-node/register ./functional-test/*.test.ts",
-    "lint": "./node_modules/.bin/eslint -c .eslintrc.js --ext .ts 'endpoints/*.ts' 'endpoints/**/*.ts' 'lib/*.ts' 'lib/**/*.ts' 'functional-test/*.ts'",
+    "start": "env TZ='Asia/Dubai' npx tsc-watch --noClear --onSuccess \"node ./dist/index.js\"",
+    "compile": "npx tsc --alwaysStrict",
+    "test": "npx mocha -r ts-node/register ./functional-test/*.test.ts",
+    "lint": "npx eslint -c .eslintrc.js --ext .ts 'endpoints/*.ts' 'endpoints/**/*.ts' 'lib/*.ts' 'lib/**/*.ts' 'functional-test/*.ts'",
     "load_json": "npm run compile && node ./dist/load_json.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/10ten-me/ts-seed-api.git"
+    "url": "git+https://github.com/10ten-me/ts-cat-example-api.git"
   },
   "keywords": [
     "typescript",
@@ -22,12 +22,12 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/10ten-me/ts-seed-api/issues"
+    "url": "https://github.com/10ten-me/ts-cat-example-api/issues"
   },
-  "homepage": "https://github.com/10ten-me/ts-seed-api#readme",
+  "homepage": "https://github.com/10ten-me/ts-cat-example-api#readme",
   "dependencies": {
     "@sentry/node": "6.18.2",
-    "@types/swagger-jsdoc": "^6.0.1",
+    "@types/swagger-jsdoc": "6.0.1",
     "ajv": "8.10.0",
     "axios": "0.26.1",
     "cors": "2.8.5",
@@ -36,7 +36,7 @@
     "pg": "8.7.3",
     "pg-native": "3.0.0",
     "probe-image-size": "7.2.3",
-    "swagger-jsdoc": "^6.1.0",
+    "swagger-jsdoc": "6.1.0",
     "swagger-ui-express": "4.3.0",
     "ts-node": "10.7.0",
     "tsc-watch": "4.6.2",
