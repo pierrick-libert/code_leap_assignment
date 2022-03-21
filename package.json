@@ -19,7 +19,7 @@
     "API",
     "CRUD"
   ],
-  "author": "",
+  "author": "Pierrick Libert <pierrick.libert@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/10ten-me/ts-cat-example-api/issues"
